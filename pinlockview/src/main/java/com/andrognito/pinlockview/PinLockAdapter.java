@@ -1,7 +1,6 @@
 package com.andrognito.pinlockview;
 
 import android.content.Context;
-import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
@@ -94,13 +93,11 @@ public class PinLockAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private void configureDeleteButtonHolder(DeleteViewHolder holder) {
         if (holder != null) {
-            if (mCustomizationOptionsBundle.isShowDeleteButton() && mPinLength > 0) {
+            if (mCustomizationOptionsBundle.isShowDeleteButton()) {
                 holder.mButtonImage.setVisibility(View.VISIBLE);
                 if (mCustomizationOptionsBundle.getDeleteButtonDrawable() != null) {
                     holder.mButtonImage.setImageDrawable(mCustomizationOptionsBundle.getDeleteButtonDrawable());
                 }
-                holder.mButtonImage.setColorFilter(mCustomizationOptionsBundle.getTextColor(),
-                        PorterDuff.Mode.SRC_ATOP);
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                         mCustomizationOptionsBundle.getDeleteButtonSize(),
                         mCustomizationOptionsBundle.getDeleteButtonSize());

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipChildren="false"
     android:clipToPadding="false"
@@ -8,9 +8,14 @@
 
     <Button
         android:id="@+id/button"
+        android:layout_gravity="center"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_gravity="center"
-        android:background="?android:attr/selectableItemBackground"/>
+        android:background="?android:attr/selectableItemBackgroundBorderless"/>
 
+    <View
+        android:id="@+id/bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#55979797"/>
 </LinearLayout>

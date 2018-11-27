@@ -69,6 +69,9 @@ public class PinLockAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 holder.mNumberButton.setVisibility(View.VISIBLE);
                 holder.mNumberButton.setTag(mKeyValues[position]);
             }
+            if (position >= 9) {
+                holder.mBottomView.setVisibility(View.GONE);
+            }
 
             if (mCustomizationOptionsBundle != null) {
                 holder.mNumberButton.setTextColor(mCustomizationOptionsBundle.getTextColor());
@@ -83,9 +86,9 @@ public class PinLockAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 }
                 holder.mNumberButton.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         mCustomizationOptionsBundle.getTextSize());
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                        mCustomizationOptionsBundle.getButtonSize(),
-                        mCustomizationOptionsBundle.getButtonSize());
+                ViewGroup.LayoutParams params = holder.mNumberButton.getLayoutParams();
+                params.width = mCustomizationOptionsBundle.getButtonSize();
+                params.height = mCustomizationOptionsBundle.getButtonSize();
                 holder.mNumberButton.setLayoutParams(params);
             }
         }
@@ -177,10 +180,12 @@ public class PinLockAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     public class NumberViewHolder extends RecyclerView.ViewHolder {
         Button mNumberButton;
+        View mBottomView;
 
         public NumberViewHolder(final View itemView) {
             super(itemView);
-            mNumberButton = (Button) itemView.findViewById(R.id.button);
+            mNumberButton = itemView.findViewById(R.id.button);
+            mBottomView = itemView.findViewById(R.id.bottom_view);
             mNumberButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -198,8 +203,8 @@ public class PinLockAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         public DeleteViewHolder(final View itemView) {
             super(itemView);
-            mDeleteButton = (LinearLayout) itemView.findViewById(R.id.button);
-            mButtonImage = (ImageView) itemView.findViewById(R.id.buttonImage);
+            mDeleteButton = itemView.findViewById(R.id.button);
+            mButtonImage = itemView.findViewById(R.id.buttonImage);
 
             if (mCustomizationOptionsBundle.isShowDeleteButton() && mPinLength > 0) {
                 mDeleteButton.setOnClickListener(new View.OnClickListener() {

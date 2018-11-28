@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * Created by aritraroy on 31/05/16.
@@ -179,12 +179,12 @@ public class PinLockAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public class NumberViewHolder extends RecyclerView.ViewHolder {
-        Button mNumberButton;
+        TextView mNumberButton;
         View mBottomView;
 
         public NumberViewHolder(final View itemView) {
             super(itemView);
-            mNumberButton = itemView.findViewById(R.id.button);
+            mNumberButton = itemView.findViewById(R.id.buttonText);
             mBottomView = itemView.findViewById(R.id.bottom_view);
             mNumberButton.setOnClickListener(new View.OnClickListener() {
                 @Override

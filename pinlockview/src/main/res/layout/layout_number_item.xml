@@ -6,12 +6,13 @@
     android:clipToPadding="false"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/buttonText"
         android:layout_gravity="center"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"/>
+        android:gravity="center"
+        android:layout_width="@dimen/default_delete_button_size"
+        android:layout_height="@dimen/default_delete_button_size"
+        android:background="?android:attr/selectableItemBackgroundBorderless" />
 
     <View
         android:id="@+id/bottom_view"

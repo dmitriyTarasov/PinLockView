@@ -121,7 +121,7 @@ public class PinLockAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private void configureAdditionalButtonHolder(AdditionalViewHolder holder) {
         if (holder != null) {
-            if (mCustomizationOptionsBundle.isShowDeleteButton()) {
+            if (mCustomizationOptionsBundle.isShowAdditionalButton()) {
                 holder.mButtonImage.setVisibility(View.VISIBLE);
                 if (mCustomizationOptionsBundle.getDeleteButtonDrawable() != null) {
                     holder.mButtonImage.setImageDrawable(mCustomizationOptionsBundle.getAdditionalButtonDrawable());
@@ -296,7 +296,7 @@ public class PinLockAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             mDeleteButton = itemView.findViewById(R.id.button);
             mButtonImage = itemView.findViewById(R.id.buttonImage);
 
-            if (mCustomizationOptionsBundle.isShowDeleteButton()) {
+            if (mCustomizationOptionsBundle.isShowAdditionalButton()) {
                 mDeleteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

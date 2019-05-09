@@ -29,6 +29,7 @@ public class PinLockView extends RecyclerView {
     private Drawable mDeleteButtonDrawable;
     private Drawable mAdditionalButtonDrawable;
     private boolean mShowDeleteButton;
+    private boolean mShowAdditionalButton;
 
     private IndicatorDots mIndicatorDots;
     private PinLockAdapter mAdapter;
@@ -152,6 +153,7 @@ public class PinLockView extends RecyclerView {
             mDeleteButtonDrawable = typedArray.getDrawable(R.styleable.PinLockView_keypadDeleteButtonDrawable);
             mAdditionalButtonDrawable = typedArray.getDrawable(R.styleable.PinLockView_keypadAdditionalButtonDrawable);
             mShowDeleteButton = typedArray.getBoolean(R.styleable.PinLockView_keypadShowDeleteButton, true);
+            mShowAdditionalButton = typedArray.getBoolean(R.styleable.PinLockView_keypadShowAdditionalButton, true);
             mDeleteButtonPressedColor = typedArray.getColor(R.styleable.PinLockView_keypadDeleteButtonPressedColor, ResourceUtils.getColor(getContext(), R.color.greyish));
         } finally {
             typedArray.recycle();
@@ -166,6 +168,7 @@ public class PinLockView extends RecyclerView {
         mCustomizationOptionsBundle.setAdditionalButtonDrawable(mAdditionalButtonDrawable);
         mCustomizationOptionsBundle.setDeleteButtonSize(mDeleteButtonSize);
         mCustomizationOptionsBundle.setShowDeleteButton(mShowDeleteButton);
+        mCustomizationOptionsBundle.setShowAdditionalButton(mShowAdditionalButton);
         mCustomizationOptionsBundle.setDeleteButtonPressesColor(mDeleteButtonPressedColor);
 
         initView();
@@ -194,6 +197,12 @@ public class PinLockView extends RecyclerView {
 
     public void setOnAdditionalClickListener(PinLockAdapter.OnAdditionalClickListener onAdditionalClickListener) {
         mAdapter.setmOnAdditionalClickListener(onAdditionalClickListener);
+    }
+
+    public void setShowAdditionalButton(boolean showAdditionalButton) {
+        mShowAdditionalButton = showAdditionalButton;
+        mCustomizationOptionsBundle.setShowAdditionalButton(showAdditionalButton);
+        mAdapter.notifyDataSetChanged();
     }
 
     /**

@@ -27,6 +27,7 @@ public class PinLockView extends RecyclerView {
     private int mTextSize, mButtonSize, mDeleteButtonSize;
     private Drawable mButtonBackgroundDrawable;
     private Drawable mDeleteButtonDrawable;
+    private Drawable mAdditionalButtonDrawable;
     private boolean mShowDeleteButton;
 
     private IndicatorDots mIndicatorDots;
@@ -149,6 +150,7 @@ public class PinLockView extends RecyclerView {
             mDeleteButtonSize = (int) typedArray.getDimension(R.styleable.PinLockView_keypadDeleteButtonSize, ResourceUtils.getDimensionInPx(getContext(), R.dimen.default_delete_button_size));
             mButtonBackgroundDrawable = typedArray.getDrawable(R.styleable.PinLockView_keypadButtonBackgroundDrawable);
             mDeleteButtonDrawable = typedArray.getDrawable(R.styleable.PinLockView_keypadDeleteButtonDrawable);
+            mAdditionalButtonDrawable = typedArray.getDrawable(R.styleable.PinLockView_keypadAdditionalButtonDrawable);
             mShowDeleteButton = typedArray.getBoolean(R.styleable.PinLockView_keypadShowDeleteButton, true);
             mDeleteButtonPressedColor = typedArray.getColor(R.styleable.PinLockView_keypadDeleteButtonPressedColor, ResourceUtils.getColor(getContext(), R.color.greyish));
         } finally {
@@ -161,6 +163,7 @@ public class PinLockView extends RecyclerView {
         mCustomizationOptionsBundle.setButtonSize(mButtonSize);
         mCustomizationOptionsBundle.setButtonBackgroundDrawable(mButtonBackgroundDrawable);
         mCustomizationOptionsBundle.setDeleteButtonDrawable(mDeleteButtonDrawable);
+        mCustomizationOptionsBundle.setAdditionalButtonDrawable(mAdditionalButtonDrawable);
         mCustomizationOptionsBundle.setDeleteButtonSize(mDeleteButtonSize);
         mCustomizationOptionsBundle.setShowDeleteButton(mShowDeleteButton);
         mCustomizationOptionsBundle.setDeleteButtonPressesColor(mDeleteButtonPressedColor);
@@ -187,6 +190,10 @@ public class PinLockView extends RecyclerView {
      */
     public void setPinLockListener(PinLockListener pinLockListener) {
         this.mPinLockListener = pinLockListener;
+    }
+
+    public void setOnAdditionalClickListener(PinLockAdapter.OnAdditionalClickListener onAdditionalClickListener) {
+        mAdapter.setmOnAdditionalClickListener(onAdditionalClickListener);
     }
 
     /**

@@ -9,6 +9,7 @@
         <attr name="keypadHorizontalSpacing" format="dimension" />
         <attr name="keypadButtonBackgroundDrawable" format="integer" />
         <attr name="keypadDeleteButtonDrawable" format="integer" />
+        <attr name="keypadAdditionalButtonDrawable" format="reference" />
         <attr name="keypadDeleteButtonSize" format="dimension" />
         <attr name="keypadShowDeleteButton" format="boolean" />
         <attr name="keypadDeleteButtonPressedColor" format="color" />

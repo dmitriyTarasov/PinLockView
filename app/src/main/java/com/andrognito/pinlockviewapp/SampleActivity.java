@@ -1,13 +1,16 @@
 package com.andrognito.pinlockviewapp;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.andrognito.pinlockview.IndicatorDots;
+import com.andrognito.pinlockview.PinLockAdapter;
 import com.andrognito.pinlockview.PinLockListener;
 import com.andrognito.pinlockview.PinLockView;
 
@@ -53,6 +56,14 @@ public class SampleActivity extends AppCompatActivity {
 
         mPinLockView.setPinLength(4);
         mPinLockView.setTextColor(ContextCompat.getColor(this, R.color.white));
+
+        mPinLockView.setShowAdditionalButton(false);
+        mPinLockView.setOnAdditionalClickListener(new PinLockAdapter.OnAdditionalClickListener() {
+            @Override
+            public void onAdditionalClicked() {
+                Toast.makeText(SampleActivity.this, "Additional", Toast.LENGTH_LONG).show();
+            }
+        });
 
         mIndicatorDots.setIndicatorType(IndicatorDots.IndicatorType.FILL_WITH_ANIMATION);
     }
